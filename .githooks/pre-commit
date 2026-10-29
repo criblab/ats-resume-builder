@@ -1,0 +1,4 @@
+#!/bin/sh
+# Blocks commits that add personal data.
+# Enable once per clone: npm run hooks
+exec node scripts/pii-check.mjs --staged

@@ -1,0 +1,25 @@
+Senior Backend Engineer — Payments Platform (Example)
+
+About the role
+We are hiring a Senior Backend Engineer to own settlement and ledger services for a
+payments platform processing millions of transactions per month. You will design
+distributed systems, improve reliability, and mentor engineers.
+
+What you will do
+- Design and ship REST APIs and event-driven services in Java and Spring Boot.
+- Operate workloads on AWS with Docker and Kubernetes; improve observability with
+  Prometheus and Grafana.
+- Model transactional data in PostgreSQL and use Kafka for asynchronous processing.
+- Lead design reviews, write runbooks, and mentor mid-level engineers.
+- Improve CI/CD pipelines and raise automated test coverage.
+
+What we are looking for
+- 5+ years of backend engineering experience.
+- Strong Java, Spring Boot, PostgreSQL, and REST API design skills.
+- Experience with distributed systems, microservices, and event-driven architecture.
+- Hands-on experience with AWS, Docker, Kubernetes, Kafka, and CI/CD.
+- Experience with observability, performance optimization, and high availability.
+- Clear written communication and stakeholder management across product and finance.
+- Nice to have: Terraform, Redis, OpenSearch, payments domain experience.
+
+We use Agile and Scrum, review code daily, and expect engineers to own production.

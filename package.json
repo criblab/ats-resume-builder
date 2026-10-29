@@ -1,0 +1,45 @@
+{
+  "name": "ats-resume-builder",
+  "version": "1.0.0",
+  "description": "Build, tailor, audit, and export ATS-friendly Software Engineer resumes from Markdown.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "ats-resume-build": "scripts/build.mjs",
+    "ats-resume-check": "scripts/ats-check.mjs"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs examples/master-resume.md --out dist --name Alex-Rivera-Resume --title \"Alex Rivera - Senior Backend Engineer\"",
+    "build:html": "node scripts/build.mjs examples/master-resume.md --out dist --name Alex-Rivera-Resume --title \"Alex Rivera - Senior Backend Engineer\" --no-pdf",
+    "check": "node scripts/ats-check.mjs examples/master-resume.md",
+    "check:jd": "node scripts/ats-check.mjs examples/master-resume.md --jd examples/job-description.txt --years 5",
+    "check:pii": "node scripts/pii-check.mjs",
+    "hooks": "git config core.hooksPath .githooks",
+    "test": "node scripts/ats-check.mjs examples/master-resume.md --jd examples/job-description.txt --years 5 --min-score 90"
+  },
+  "keywords": [
+    "ats",
+    "resume",
+    "cv",
+    "software-engineer",
+    "job-search",
+    "markdown",
+    "pdf",
+    "opencode",
+    "claude-code",
+    "ai-skill"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "SKILL.md",
+    "README.md",
+    "README.es.md",
+    "LICENSE",
+    "scripts/",
+    "templates/",
+    "references/",
+    "examples/"
+  ]
+}

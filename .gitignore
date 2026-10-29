@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+out/
+
+# Personal resumes and application data (never commit these)
+resume/
+resumes/
+applications/
+*.local.md
+*.local.pdf
+*.local.docx
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# Env and secrets
+.env
+.env.*
+.pii-denylist.local

@@ -1,0 +1,7 @@
+# Copy to .pii-denylist.local (git-ignored) and list terms you never want
+# published, one per line. Matching is case-insensitive and local only.
+#
+# Example format:
+# Your Full Name
+# Your Employer
+# client-name

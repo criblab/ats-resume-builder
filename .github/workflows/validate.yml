@@ -1,0 +1,37 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Personal data check
+        run: npm run check:pii
+
+      - name: Validate example resume
+        run: npm test
+
+      - name: Build HTML
+        run: npm run build:html
+
+      - name: Upload preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: example-resume
+          path: dist/
+          if-no-files-found: error
