@@ -1,5 +1,5 @@
-# Alex Rivera
-Austin, TX | Open to Remote | +1 415 555 0142 | alex.rivera@example.com | linkedin.com/in/alexrivera-dev | github.com/alexrivera-dev
+# John Doe
+Austin, TX | Open to Remote | +1 415 555 0142 | john.doe@example.com | linkedin.com/in/johndoe | github.com/johndoe
 
 ## WORK EXPERIENCE
 
@@ -31,7 +31,7 @@ Austin, TX | Open to Remote | +1 415 555 0142 | alex.rivera@example.com | linked
 - **Databases & Tools:** PostgreSQL, Redis, MongoDB, Kafka, Git, Agile/Scrum, Jira
 
 ## PROJECTS
-### **ledger-replay** | [github.com/alexrivera-dev/ledger-replay](https://github.com/alexrivera-dev/ledger-replay)
+### **ledger-replay** | [github.com/johndoe/ledger-replay](https://github.com/johndoe/ledger-replay)
 - Built an open-source CLI that replays payment events into a local PostgreSQL instance, used by 40+ developers to reproduce settlement bugs in under 2 minutes.
 
 ## EDUCATION

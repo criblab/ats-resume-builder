@@ -1,10 +1,43 @@
+<div align="center">
+
 # ATS Resume Builder
+
+**Currículums de ingeniería de software compatibles con ATS, creados, auditados y exportados en local.**
+
+<a href="https://github.com/criblab/ats-resume-builder/actions/workflows/validate.yml"><img src="https://github.com/criblab/ats-resume-builder/actions/workflows/validate.yml/badge.svg" alt="Validate"></a> <a href="https://github.com/criblab/ats-resume-builder/releases/latest"><img src="https://img.shields.io/github/v/release/criblab/ats-resume-builder?label=release" alt="Última versión"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/criblab/ats-resume-builder?color=blue" alt="Licencia: MIT"></a> <img src="https://img.shields.io/badge/agentes-Claude%20Code%20%7C%20Codex%20%7C%20Cursor%20%7C%20Copilot%20%7C%20Gemini%20CLI%20%7C%20OpenCode-8A2BE2" alt="Agentes: Claude Code, Codex, Cursor, Copilot, Gemini CLI, OpenCode"> <img src="https://img.shields.io/badge/node-%E2%89%A518-5FA04E?logo=nodedotjs&logoColor=white" alt="Node 18+"> <img src="https://img.shields.io/badge/dependencias-0-brightgreen" alt="Sin dependencias"> <img src="https://img.shields.io/badge/100%25%20local-sin%20subidas-blueviolet" alt="Todo local">
+
+<sub><a href="README.md">English</a> · <b>Español</b></sub>
+
+</div>
 
 Una skill de IA y un kit sin dependencias para crear, adaptar, auditar y exportar **currículums de ingeniería de software compatibles con ATS** desde Markdown.
 
 Combina un flujo de escritura estructurado (fórmula XYZ de Google, palabras clave exactas de la vacante, formato de una sola columna) con scripts locales que generan un HTML/PDF limpio y revisan el resultado antes de postular. Sin cuentas, sin subir datos, sin suscripciones.
 
-![Vista previa del currículum de ejemplo](docs/preview.png)
+<p align="center">
+  <img src="docs/preview.png" width="440" alt="Vista previa del currículum de ejemplo">
+</p>
+
+<details>
+<summary><b>Contenido</b></summary>
+
+- [Por qué existe](#por-qué-existe)
+- [Alcance / Qué no es](#alcance--qué-no-es)
+- [Qué incluye](#qué-incluye)
+- [Inicio rápido](#inicio-rápido)
+- [Úsala como skill de IA](#úsala-como-skill-de-ia)
+- [Desde cero: qué hace un usuario nuevo](#desde-cero-qué-hace-un-usuario-nuevo)
+- [El flujo](#el-flujo)
+- [Comandos de exportación](#comandos-de-exportación)
+- [Validación](#validación)
+- [Personalización](#personalización)
+- [Estructura del repositorio](#estructura-del-repositorio)
+- [Privacidad](#privacidad)
+- [Limitaciones](#limitaciones)
+- [Contribuir](#contribuir)
+- [Licencia](#licencia)
+
+</details>
 
 ## Por qué existe
 
@@ -53,53 +86,56 @@ Para uso no-tech, tomalo como un kit de formato y exportación, y reemplazá `re
 
 ## Inicio rápido
 
-Requisitos: **Node.js 18+** y, para exportar a PDF, **Chrome, Edge o Chromium** instalado. No se descarga ni se sube nada.
+El único requisito es **Node.js 18+**. Nada se descarga ni se sube: sin cuentas, sin API keys, sin instalador.
 
 ```bash
 git clone https://github.com/criblab/ats-resume-builder.git
 cd ats-resume-builder
 
-# Validar el ejemplo (no requiere instalar dependencias)
+# Auditar el ejemplo (sin paso de instalación)
 npm test
 
 # Generar HTML + PDF
 npm run build
 
-# Salida
-# dist/Alex-Rivera-Resume.html
-# dist/Alex-Rivera-Resume.pdf
+# dist/John-Doe-Resume.html
+# dist/John-Doe-Resume.pdf
 ```
-
-Si no encuentra un navegador, el HTML igual se genera. Ábrelo y usa `Ctrl/Cmd+P -> Guardar como PDF` con márgenes en cero y gráficos de fondo activados.
 
 ## Úsala como skill de IA
 
-### OpenCode
+Este repo es un paquete **Agent Skills** estándar: una carpeta con `SKILL.md`, `scripts/` y `references/`. El formato es neutral respecto al proveedor, así que la misma copia funciona en cualquier agente que lo implemente.
 
-```bash
-# macOS / Linux
-mkdir -p ~/.config/opencode/skills
-git clone https://github.com/criblab/ats-resume-builder.git \
-  ~/.config/opencode/skills/ats-resume-builder
-```
+| Agente | Proyecto | Global |
+| :--- | :--- | :--- |
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` |
+| Codex | `.codex/skills/` | `~/.codex/skills/` |
+| Cursor | `.cursor/skills/` | `~/.cursor/skills/` |
+| GitHub Copilot | `.github/skills/` | `~/.copilot/skills/` |
+| Gemini CLI | `.gemini/skills/` | `~/.gemini/skills/` |
+| OpenCode | `.opencode/skills/` | `~/.config/opencode/skills/` |
+| Amp | `.agents/skills/` | `~/.config/agents/skills/` |
 
-```powershell
-# Windows (PowerShell)
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.config\opencode\skills" | Out-Null
-git clone https://github.com/criblab/ats-resume-builder.git `
-  "$env:USERPROFILE\.config\opencode\skills\ats-resume-builder"
-```
+El único contrato es `SKILL.md`: frontmatter YAML con `name` y `description`, y luego Markdown. Sin plugin, sin registro, sin adaptador.
 
-### Claude Code
+### Instalación
+
+Clona una vez en la carpeta global de tu agente, cambiando la ruta según la tabla:
 
 ```bash
 git clone https://github.com/criblab/ats-resume-builder.git \
   ~/.claude/skills/ats-resume-builder
 ```
 
-### Instalación por proyecto
+```powershell
+# Windows (PowerShell)
+git clone https://github.com/criblab/ats-resume-builder.git `
+  "$env:USERPROFILE\.claude\skills\ats-resume-builder"
+```
 
-Copia o enlaza la carpeta dentro de `.opencode/skills/ats-resume-builder/` o `.claude/skills/ats-resume-builder/` en el proyecto.
+Para un solo proyecto, clona dentro de `.claude/skills/`, `.codex/skills/`, `.cursor/skills/`, `.github/skills/`, `.gemini/skills/` o `.opencode/skills/` en el repositorio. Varios agentes también leen `.agents/skills/` (OpenCode, Gemini CLI, Cursor, Amp), así que esa ruta es lo más parecido a una ubicación compartida.
+
+El contenido es Markdown plano, así que también sirve en agentes que aún no implementan el estándar: apunta el agente al archivo (`lee SKILL.md y síguelo`) o pégalo en el archivo de reglas de la herramienta (`AGENTS.md`, `CLAUDE.md`, `.cursor/rules`). Los scripts se comportan igual, porque solo son Node.
 
 ### Prompts que la activan
 
@@ -138,7 +174,7 @@ Un primer uso típico, de principio a fin:
 
 ¿No usa un agente de IA? Puede hacerlo manual: copia `templates/resume.md`, escribe los bullets y corre los dos comandos. El validador y el exportador funcionan igual.
 
-**Lo que necesita:** Node 18+, Git y Chrome/Edge/Chromium para el PDF. Sin cuenta, API key, suscripción ni subida de datos. El primer uso suele tomar 20-30 minutos, sobre todo pensando métricas, no formato.
+**Lo que necesita:** Node 18+ y Git. Sin cuenta, API key, suscripción ni subida de datos. El primer uso suele tomar 20-30 minutos, sobre todo pensando métricas, no formato.
 
 ## El flujo
 
@@ -186,7 +222,7 @@ node scripts/build.mjs resume/master.md --font-size 9.2pt
 | `--no-pdf` | apagado | Solo HTML |
 | `--require-pdf` | apagado | Falla si no puede generar el PDF |
 
-La exportación prueba `CHROME_PATH`, luego Chrome, Edge y Chromium en sus rutas habituales. Usa un perfil temporal, imprime sin encabezados ni pies de página y borra el perfil al terminar. El currículum nunca sale de tu máquina.
+La exportación prueba `CHROME_PATH`, luego Chrome, Edge y Chromium en sus rutas habituales. Usa un perfil temporal, imprime sin encabezados ni pies de página y borra el perfil al terminar. El currículum nunca sale de tu máquina. Si no encuentra un navegador basado en Chromium, el HTML igual se genera: ábrelo e imprime a PDF con márgenes en cero y gráficos de fondo activados.
 
 La hoja de estilos también desactiva las ligaduras `fi`/`fl`/`ff`. Sin eso, al extraer el texto del PDF puede aparecer `notiﬁcación` en lugar de `notificación`, y la búsqueda de keywords pierde el término.
 
@@ -248,7 +284,9 @@ ats-resume-builder/
 │  └─ pii-check.mjs          # Control de datos personales
 ├─ references/               # Verbos, keywords, rúbrica, parsing, casos especiales
 ├─ examples/                 # Currículum y vacante ficticios
-├─ docs/preview.png          # Captura del ejemplo
+├─ docs/
+│  ├─ preview.png            # Captura del ejemplo
+│  └─ social-preview.png     # Tarjeta social 1280x640
 └─ .github/workflows/        # Validación en CI
 ```
 
@@ -277,3 +315,9 @@ Issues y pull requests son bienvenidos. Lee [CONTRIBUTING.md](CONTRIBUTING.md). 
 ## Licencia
 
 MIT. Ver [LICENSE](LICENSE).
+
+---
+
+<p align="center">
+  <sub>Si esto te ahorra una hora y un rechazo, dale una estrella al repo.<br>Si te enseña por qué un currículum falla, vale más.</sub>
+</p>

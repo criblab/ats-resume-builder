@@ -2,7 +2,7 @@
 name: ats-resume-builder
 description: Builds, audits, tailors, and exports elite ATS-friendly Software Engineer resumes using the XYZ formula, exact job-description keywords, and single-column formatting. Use when creating a resume from scratch, tailoring an existing resume to a job description, auditing ATS compatibility, or exporting Markdown to HTML/PDF.
 license: MIT
-compatibility: OpenCode, Claude Code
+compatibility: Claude Code, Codex, Cursor, GitHub Copilot, Gemini CLI, OpenCode, Amp
 metadata:
   version: "1.0.0"
   triggers:

@@ -30,7 +30,7 @@ Why this company specifically, and a clear next step. No begging, no "I look for
 
 ## Short email version
 
-Subject: Senior Backend Engineer - Alex Rivera
+Subject: Senior Backend Engineer - John Doe
 
 > Hi [Name],
 >
@@ -40,8 +40,8 @@ Subject: Senior Backend Engineer - Alex Rivera
 >
 > Resume attached. Thanks for your time.
 >
-> Alex Rivera
-> github.com/alexrivera-dev
+> John Doe
+> github.com/johndoe
 
 ## Rules
 

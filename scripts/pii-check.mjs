@@ -50,13 +50,13 @@ const SKIP_EXTENSIONS = new Set([
 const ALLOWED_EMAIL_DOMAINS = new Set(["example.com", "example.org", "example.net", "example"]);
 const ALLOWED_PHONE_DIGITS = new Set(["5555555", "5555555555", "15555555555"]);
 const ALLOWED_HANDLES = new Set([
-  "alexrivera-dev", "handle", "your-handle", "your-username", "username",
-  "user", "example", "johndoe", "jane-doe", "johnsmith", "johndev",
+  "handle", "your-handle", "your-username", "username", "user", "example",
+  "johndoe", "jane-doe", "johnsmith", "johndev",
 ]);
 
 // Binary files that may be committed. Add a path only after reviewing its
 // content and metadata in the pull request.
-const ALLOWED_BINARIES = new Set(["docs/preview.png"]);
+const ALLOWED_BINARIES = new Set(["docs/preview.png", "docs/social-preview.png"]);
 
 const ALLOW_MARKER = "pii-allow";
 
